@@ -87,19 +87,3 @@ const AppNavigator = createStackNavigator(
 )
 
 export default AppNavigator
-
-                // export default class App extends React.Component {
-                //   onDrawerOpen() {
-                //     NavigationActions.navigate('DrawerOpen')
-                //   }
-
-                //   render() {
-                //     return (
-                //       <View style={styles.container}>
-                //         <StatusBarBackground style={{backgroundColor:'slateblue'}}/>
-                //         <Header onDrawerOpen={this.onDrawerOpen.bind(this)} />
-                //         <Drawer />
-                //       </View>
-                //     );
-                //   }
-                // }
