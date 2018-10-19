@@ -7,7 +7,7 @@ export default class Task extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            doneColor: props.val.isDone ? 'forestgreen' : 'limegreen'
+            doneColor: props.val.isDone ? 'seagreen' : 'limegreen'
         }
     }
     render() {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     actionButtonIconCheck: {
         fontSize: 40,
         height: 40,
-        color: 'forestgreen',
+        color: 'seagreen',
         marginLeft: 12
     },
 });

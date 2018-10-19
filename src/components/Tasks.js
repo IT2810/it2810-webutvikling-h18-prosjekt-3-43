@@ -41,12 +41,22 @@ export default class Header extends React.Component {
     }
 
     render() {
-        let tasks = this.state.taskArray.map((val, key)=>{
-            return <Task key={key} keyval={key} val={val}
-                        completeMethod={() => this.completeTask(key)}
-                        deleteMethod={() => this.deleteTask(key)}
-                    />
-        });
+        let tasks = this.state.taskArray
+            .filter(val => !val.isDone)
+            .map((val, key) => {
+                return <Task key={key} keyval={key} val={val}
+                            completeMethod={() => this.completeTask(key)}
+                            deleteMethod={() => this.deleteTask(key)}
+                        />
+                });
+        let completed = this.state.taskArray
+            .filter(val => val.isDone)
+            .map((val, key) => {
+                return <Task key={key} keyval={key} val={val}
+                            completeMethod={() => this.completeTask(key)}
+                            deleteMethod={() => this.deleteTask(key)}
+                        />
+                });
 
         return (
             <View style={styles.container}>
@@ -54,6 +64,7 @@ export default class Header extends React.Component {
                     animationType="slide"
                     transparent={false}
                     visible={this.state.modalVisible}
+                    onRequestClose={() => null}
                 >
                     <View style={{marginTop: 50}}>
                         <Button 
@@ -62,7 +73,7 @@ export default class Header extends React.Component {
                         />
                         <TextInput
                             style={styles.textInput}
-                            placeholder='YOLO'
+                            placeholder='Type anything'
                             onChangeText={(taskText)=> this.setState({taskText})}
                             value={this.state.taskText}
                         />
@@ -97,6 +108,14 @@ export default class Header extends React.Component {
 
                 <ScrollView style={styles.scrollContainer}>
                     {tasks}
+                    {
+                        completed.length ?
+                        <View style={styles.completedBar}>
+                            <Text style={styles.completedBarText}>Completed</Text>
+                        </View>
+                        : null
+                    }
+                    {completed}
                 </ScrollView>
 
                 <ActionButton buttonColor='slateblue' onPress={() => { 
@@ -160,7 +179,6 @@ export default class Header extends React.Component {
             .then((req) => {
                 if (req != undefined) {
                     this.setState({taskArray: JSON.parse(req)});
-                    console.log(JSON.parse(req))
                 } else {
                     this.setState({taskArray: []});
                 }
@@ -198,4 +216,15 @@ const styles = StyleSheet.create({
         borderBottomWidth:2,
         borderBottomColor: '#ededed'
     },
+    completedBar: {
+        display: 'flex',
+        height: 30,
+        backgroundColor: 'seagreen',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    completedBarText: {
+        color: 'white',
+        fontSize: 18
+    }
 });
