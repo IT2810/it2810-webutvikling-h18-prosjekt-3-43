@@ -20,15 +20,13 @@ export default class Header extends React.Component {
     }
 
     render() {
-
-
         let tasks = this.state.taskArray.map((val, key)=>{
             return <Task key={key} keyval={key} val={val}
                     deleteMethod={()=>this.deleteTask(key)}/>
         });
+
         return (
             <View style={styles.container}>
-
                 <Modal
                 animationType="slide"
                 transparent={false}
@@ -39,20 +37,16 @@ export default class Header extends React.Component {
                             title='Close'
                             onPress={() => { this.setModalVisible(false);}}
                         />
-
                         <TextInput
                         style={styles.textInput}
                         placeholder='YOLO'
                         onChangeText={(taskText)=> this.setState({taskText})}
                         value={this.state.taskText}
-                    ></TextInput>
-
+                        />
                         <Button
                             title='Save'
                             onPress={this.addTask.bind(this)}
                         />
-
-
                     </View>
                 </Modal>
                 <ScrollView style={styles.scrollContainer}>
@@ -63,7 +57,6 @@ export default class Header extends React.Component {
             </View>
         );
     }
-    //#9b59b6
     addTask(){
         if(this.state.taskText){
             var d = new Date();
@@ -104,9 +97,6 @@ const styles = StyleSheet.create({
         paddingVertical: 8,
         paddingHorizontal: 16,
       },
-    scrollContainer: {
-      //  backgroundColor: 'red'
-    },
     textInput: {
         fontSize: 30,
         padding: 20,
@@ -114,6 +104,5 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderBottomWidth:2,
         borderBottomColor: '#ededed'
-        //backgroundColor: 'blue'
     },
 });

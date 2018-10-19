@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -10,9 +9,6 @@ export default class Task extends Component {
             <View key={this.props.keyval} style={styles.task}>
                 <Text style={styles.taskText}>{this.props.val.date}</Text>
                 <Text style={styles.taskText}>{this.props.val.task}</Text>
-
-
-
                 <TouchableOpacity onPress={this.props.deleteMethod} style={styles.taskDelete}>
                     <Icon name="md-remove-circle" style={styles.actionButtonIcon}/>
                 </TouchableOpacity>
@@ -32,16 +28,12 @@ const styles = StyleSheet.create({
     taskText: {
         paddingLeft: 0,
         borderLeftWidth: 0,
-        //borderLeftColor: '#E91E63',
         color: 'black'
     },
     taskDelete: {
-       // fontSize: 100,
-        //height: 22,
         position: 'absolute',
         justifyContent: 'center',
         alignItems: 'center',
-        //backgroundColor: 'blue',
         padding: 20,
         top: 10,
         bottom: 10,
