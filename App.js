@@ -4,7 +4,7 @@ import { createDrawerNavigator, createStackNavigator } from 'react-navigation'
 import { FontAwesome } from '@expo/vector-icons'
 import Calendar from './src/components/Calendar'
 import Contacts from './src/components/Contacts'
-import TodosContainer from './src/components/TodosContainer'
+import Tasks from './src/components/Tasks'
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -18,7 +18,7 @@ class Home extends React.Component {
             <View style={styles.container}>
             <Text>Home</Text>
             <ActionButton>
-                <ActionButton.Item buttonColor='#9b59b6' title="New todo" onPress={() => console.log("todos tapped!")}>
+                <ActionButton.Item buttonColor='#9b59b6' title="New task" onPress={() => console.log("task tapped!")}>
                     <Icon name="md-create" style={styles.actionButtonIcon} />
                 </ActionButton.Item>
                 <ActionButton.Item buttonColor='#FC5E60' title="New contact" onPress={() => console.log("contacts tapped!")}>
@@ -65,10 +65,10 @@ const DrawerNavigator = createDrawerNavigator(
                 drawerLabel: 'Contacts'
             }
         },
-        TodosContainer: {
-            screen: TodosContainer,
+        Tasks: {
+            screen: Tasks,
             navigationOptions: {
-                drawerLabel: 'Todos'
+                drawerLabel: 'Tasks'
             }
         },
     }

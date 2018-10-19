@@ -4,16 +4,16 @@ import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
-export default class Todo extends Component {
+export default class Task extends Component {
     render() {
         return (
-            <View key={this.props.keyval} style={styles.todo}>
-                <Text style={styles.todoText}>{this.props.val.date}</Text>
-                <Text style={styles.todoText}>{this.props.val.todo}</Text>
+            <View key={this.props.keyval} style={styles.task}>
+                <Text style={styles.taskText}>{this.props.val.date}</Text>
+                <Text style={styles.taskText}>{this.props.val.task}</Text>
 
 
 
-                <TouchableOpacity onPress={this.props.deleteMethod} style={styles.todoDelete}>
+                <TouchableOpacity onPress={this.props.deleteMethod} style={styles.taskDelete}>
                     <Icon name="md-remove-circle" style={styles.actionButtonIcon}/>
                 </TouchableOpacity>
             </View>
@@ -21,7 +21,7 @@ export default class Todo extends Component {
     }
 }
 const styles = StyleSheet.create({
-    todo: {
+    task: {
         position: 'relative',
         padding: 20,
         paddingRight: 100,
@@ -29,13 +29,13 @@ const styles = StyleSheet.create({
         borderBottomWidth:2,
         borderBottomColor: '#ededed'
     },
-    todoText: {
+    taskText: {
         paddingLeft: 0,
         borderLeftWidth: 0,
         //borderLeftColor: '#E91E63',
         color: 'black'
     },
-    todoDelete: {
+    taskDelete: {
        // fontSize: 100,
         //height: 22,
         position: 'absolute',

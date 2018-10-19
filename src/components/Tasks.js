@@ -1,16 +1,16 @@
 import React from 'react';
-import { Text, TextInput, StyleSheet, TouchableHighlight, View, ScrollView, Modal, Alert } from 'react-native';
+import { Text, TextInput, StyleSheet, Button, TouchableHighlight, View, ScrollView, Modal, Alert } from 'react-native';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Todo from './Todo';
+import Task from './Task';
 
 export default class Header extends React.Component {
 
     constructor(props){
         super(props);
         this.state = {
-            todoArray: [],
-            todoText: '',
+            taskArray: [],
+            taskText: '',
             modalVisible: false
         };
     }
@@ -22,9 +22,9 @@ export default class Header extends React.Component {
     render() {
 
 
-        let todos = this.state.todoArray.map((val, key)=>{
-            return <Todo key={key} keyval={key} val={val}
-                    deleteMethod={()=>this.deleteTodo(key)}/>
+        let tasks = this.state.taskArray.map((val, key)=>{
+            return <Task key={key} keyval={key} val={val}
+                    deleteMethod={()=>this.deleteTask(key)}/>
         });
         return (
             <View style={styles.container}>
@@ -35,24 +35,28 @@ export default class Header extends React.Component {
                 visible={this.state.modalVisible}
                 >
                     <View style={{marginTop: 50}}>
-                        <Text>Hello World!</Text>
+                        <Button 
+                            title='Close'
+                            onPress={() => { this.setModalVisible(false);}}
+                        />
+
                         <TextInput
                         style={styles.textInput}
                         placeholder='YOLO'
-                        onChangeText={(todoText)=> this.setState({todoText})}
-                        value={this.state.todoText}
+                        onChangeText={(taskText)=> this.setState({taskText})}
+                        value={this.state.taskText}
                     ></TextInput>
 
-                        <TouchableHighlight
-                        onPress={() => {
-                            this.setModalVisible(false);
-                        }}>
-                        <Text>Hide Modal</Text>
-                        </TouchableHighlight>
+                        <Button
+                            title='Save'
+                            onPress={this.addTask.bind(this)}
+                        />
+
+
                     </View>
                 </Modal>
                 <ScrollView style={styles.scrollContainer}>
-                    {todos}
+                    {tasks}
                 </ScrollView>
 
                 <ActionButton buttonColor='slateblue' onPress={() => { this.setModalVisible(true);}}/>
@@ -60,22 +64,23 @@ export default class Header extends React.Component {
         );
     }
     //#9b59b6
-    addTodo(){
-        if(this.state.todoText){
+    addTask(){
+        if(this.state.taskText){
             var d = new Date();
-            this.state.todoArray.push({
+            this.state.taskArray.push({
                 'date':d.getFullYear()+
                 "/"+(d.getMonth()+1) +
                 "/"+ d.getDate(),
-                'todo': this.state.todoText
+                'task': this.state.taskText
             });
-            this.setState({ todoArray: this.state.todoArray });
-            this.setState({todoText:''});
+            this.setState({ taskArray: this.state.taskArray });
+            this.setState({taskText:''});
+            this.setModalVisible(false);
         }
     }
-    deleteTodo(key){
-        this.state.todoArray.splice(key, 1);
-        this.setState({todoArray: this.state.todoArray});
+    deleteTask(key){
+        this.state.taskArray.splice(key, 1);
+        this.setState({taskArray: this.state.taskArray});
     }
 }
 
@@ -103,6 +108,12 @@ const styles = StyleSheet.create({
       //  backgroundColor: 'red'
     },
     textInput: {
-        backgroundColor: 'blue'
+        fontSize: 30,
+        padding: 20,
+        paddingRight: 100,
+        backgroundColor: 'white',
+        borderBottomWidth:2,
+        borderBottomColor: '#ededed'
+        //backgroundColor: 'blue'
     },
 });
