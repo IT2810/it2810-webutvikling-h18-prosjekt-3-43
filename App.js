@@ -4,8 +4,6 @@ import { createDrawerNavigator, createStackNavigator } from 'react-navigation'
 import { FontAwesome } from '@expo/vector-icons'
 import MapView from 'react-native-maps'
 import { Marker } from 'react-native-maps'
-import Calendar from './src/components/Calendar'
-import Contacts from './src/components/Contacts'
 import Tasks from './src/components/Tasks'
 
 class Home extends React.Component {
@@ -97,18 +95,6 @@ const DrawerNavigator = createDrawerNavigator(
             screen: Home,
             navigationOptions: {
                 drawerLabel: 'Planner Home'
-            }
-        },
-        Calendar: {
-            screen: Calendar,
-            navigationOptions: {
-                drawerLabel: 'Calendar'
-            }
-        },
-        Contacts: {
-            screen: Contacts,
-            navigationOptions: {
-                drawerLabel: 'Contacts'
             }
         },
         Tasks: {
