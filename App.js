@@ -4,7 +4,7 @@ import { createDrawerNavigator, createStackNavigator } from 'react-navigation'
 import { FontAwesome } from '@expo/vector-icons'
 import Calendar from './src/components/Calendar'
 import Contacts from './src/components/Contacts'
-import Todos from './src/components/Todos'
+import TodosContainer from './src/components/TodosContainer'
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -65,8 +65,8 @@ const DrawerNavigator = createDrawerNavigator(
                 drawerLabel: 'Contacts'
             }
         },
-        Todos: {
-            screen: Todos,
+        TodosContainer: {
+            screen: TodosContainer,
             navigationOptions: {
                 drawerLabel: 'Todos'
             }
