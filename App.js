@@ -5,8 +5,6 @@ import { FontAwesome } from '@expo/vector-icons'
 import Calendar from './src/components/Calendar'
 import Contacts from './src/components/Contacts'
 import Tasks from './src/components/Tasks'
-import ActionButton from 'react-native-action-button';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 class Home extends React.Component {
     static navigationOptions = {
@@ -17,17 +15,6 @@ class Home extends React.Component {
         return (
             <View style={styles.container}>
             <Text>Home</Text>
-            <ActionButton>
-                <ActionButton.Item buttonColor='#9b59b6' title="New task" onPress={() => console.log("task tapped!")}>
-                    <Icon name="md-create" style={styles.actionButtonIcon} />
-                </ActionButton.Item>
-                <ActionButton.Item buttonColor='#FC5E60' title="New contact" onPress={() => console.log("contacts tapped!")}>
-                    <Icon name="md-person-add" style={styles.actionButtonIcon} />
-                </ActionButton.Item>
-                <ActionButton.Item buttonColor='#4A90E2' title="New event" onPress={() => console.log("calendar tapped!")}>
-                    <Icon name="md-calendar" style={styles.actionButtonIcon} />
-                </ActionButton.Item>
-            </ActionButton>
             </View>
         );
     }
