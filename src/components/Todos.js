@@ -4,8 +4,9 @@ import { View, Text } from 'react-native'
 export default class Header extends React.Component {
     render() {
         return (
-            <View>
-                <Text>Todos</Text>
+            <View style={styles.container}>
+                <Text>Todos motherfucker</Text>
+                
             </View>
         )
     }
