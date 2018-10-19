@@ -5,23 +5,23 @@ For å kjøre applikasjonen trenger du git, npm og expo-cli. Se npm sine egne si
 For å installere expo-cli kan du kjøre
 
 ```
-     npm install -g expo-cli
+npm install -g expo-cli
 
 ```
 
 Klone kodebase
 ```
-    git clone git@github.com:IT2810/it2810-webutvikling-h18-prosjekt-3-43.git # Klone kodebase
+git clone git@github.com:IT2810/it2810-webutvikling-h18-prosjekt-3-43.git # Klone kodebase
 ```
 
  Installerer alle dependencies
 ```
-    npm install 
+ npm install 
 ```
 
 Ser på start-verdien i package.json og kjørerer expo start
 ```
-    npm start  
+ npm start  
 ```
 
 Når expo-prosessen kjører kan man trykke i (på Mac) for å åpne applikasjonen i
@@ -31,9 +31,9 @@ iOS simulator
 ## Testing ##
 Applikasjonen ble testet på iOS simulator, samt android-telefon (Samsung S8)
 
-Enhetstester er skrevet i jest. I utgangspunktet har vi ikke så mye å teste,
-så vi tester om snapshots
-
+Vi gjorde et forsøk på å skrive tester for applikasjonen. Når vi kjørte testene
+fikk vi feilmeldingen '__fbBatchedBridgeConfig is not set, cannot invoke native modules'.
+Denne rakk vi ikke finne noen løsniger på før vi måtte levere.
 
 ## Valg ##
 ### Asyncstorage ###
@@ -50,6 +50,7 @@ f.eks. state-objektet i en react-komponent.
 Når man oppretter en task kan man geotagge hvor man opprettet den. Man kan på
 den første skjermen man møter se et kart med alle task-ene sine. Det vi oppdaget
 under testingen er at det eksisterer en bug i geolocation-apiet for android.
+https://github.com/expo/expo/issues/2039
 
 ## Samarbeid ##
 Vi brukte prosjekt-fanen på github til å definere oppgaver. I utgangspunktet
