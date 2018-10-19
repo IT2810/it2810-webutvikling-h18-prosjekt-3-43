@@ -3,12 +3,26 @@ Hvordan kjøre applikasjonen
 For å kjøre applikasjonen trenger du git, npm og expo-cli. Se npm sine egne sider for installasjon av npm.
 
 For å installere expo-cli kan du kjøre
+
+```
      npm install -g expo-cli
 
+```
+
 Klone kodebase
-    git clone git@github.com:IT2810/it2810-webutvikling-h18-prosjekt-3-43.git
-    npm install # Installerer alle dependencies
-    npm start # Ser på start-verdien i package.json og kjørerer expo start
+```
+    git clone git@github.com:IT2810/it2810-webutvikling-h18-prosjekt-3-43.git # Klone kodebase
+```
+
+ Installerer alle dependencies
+```
+    npm install 
+```
+
+Ser på start-verdien i package.json og kjørerer expo start
+```
+    npm start  
+```
 
 Når expo-prosessen kjører kan man trykke i (på Mac) for å åpne applikasjonen i
 iOS simulator
@@ -18,7 +32,7 @@ iOS simulator
 Applikasjonen ble testet på iOS simulator, samt android-telefon (Samsung S8)
 
 Enhetstester er skrevet i jest. I utgangspunktet har vi ikke så mye å teste,
-så vi tester 
+så vi tester om snapshots
 
 
 ## Valg ##
@@ -34,9 +48,10 @@ f.eks. state-objektet i en react-komponent.
 
 ### React-native-maps ###
 Når man oppretter en task kan man geotagge hvor man opprettet den. Man kan på
-den første skjermen man møter se et kart med alle task-ene sine.
+den første skjermen man møter se et kart med alle task-ene sine. Det vi oppdaget
+under testingen er at det eksisterer en bug i geolocation-apiet for android.
 
-### Samarbeid ###
+## Samarbeid ##
 Vi brukte prosjekt-fanen på github til å definere oppgaver. I utgangspunktet
 startet vi alt for sent med arbeidet, så det ble ikke brukt spesielt
 konstruktivt. For å redde litt poeng på prosjektet endret vi scopet vi hadde
